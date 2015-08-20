@@ -1,0 +1,55 @@
+\documentclass[degn-notes.tex]{subfiles}
+
+\begin{document}
+
+\setcounter{chapter}{1}
+
+\chapter{Observations of Galactic Nuclei and Supermassive Black Holes}
+
+\section{Structure of galaxies and galactic nuclei}
+
+\section{Techniques for weighing black holes}
+
+\section{Supermassive black holes in the Local Group}
+
+\section{Phenomenology}
+
+\section{Evidence for intermediate-mass black holes}
+
+\section{Evidence for binary and multiple supermassive black holes}
+
+\section{Gravitational waves}
+
+The amplitude, $h$, of a gravitational wave is a dimensionless quantity given by
+
+\begin{displaymath}
+  h \approx
+  \frac{G}{c^4} \frac{\ddot{Q}}{D} \approx
+  \frac{G M_Q}{c^2 D} \frac{v^2}{c^2},
+%
+  \tag{Merritt 2.55}
+  \label{merritt:2.55}
+\end{displaymath}
+
+where $v$ is the internal velocity of the source, $M_Q$ is the portion of the source's mass (in units of mass, not just 0--1) participating in the quadrupolar motions, and $D$ is the distance to the source.
+
+To understand the detector size needed to observe a gravitational wave, consider the ideal case, where the entire mass is participating in quadrupolar motions ($M_Q = M_{12}$), and the binary is located at a distance $D$ from the observer and $a$ from each other. Then we have $v^2 \approx G M_{12} / a$, and from (\ref{merritt:2.55}) we have
+
+\begin{align*}
+  h &\approx
+  \frac{G M_{12}}{c^2 D} \frac{G M_{12}}{a c^2}
+  \\ &\approx
+  \frac{G^2}{c^4} M_{12}^2 a^{-1} D^{-1}
+  \\ &\approx
+  \num{2e-16}
+    \qty(\frac{M_{12}}{10^{-8} M_{\Sun}})^2
+    \qty(\frac{a}{\si{\milli\parsec}})^{-1}
+    \qty(\frac{D}{100\si{\mega\parsec}})^{-1}
+%
+  \tag{Merritt 2.58}
+  \label{merritt:2.58}
+\end{align*}
+
+
+
+\end{document}

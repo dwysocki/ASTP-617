@@ -1,0 +1,36 @@
+\documentclass{book}
+
+\usepackage{amsmath,amssymb,mathabx,mathtools}
+\usepackage{physics,siunitx}
+
+\usepackage{subfiles}
+
+% the tocloft package lets you redefine the Table of Contents (ToC)
+\usepackage{tocloft}
+
+\renewcommand\cftchappresnum{Chapter } % prefix "Chapter " to chapter number in ToC
+\cftsetindents{chapter}{0em}{8em}      % set amount of indenting
+\cftsetindents{section}{2em}{6em}
+% Macros to redefine numbering of appendix sections (and to
+%   reset numbering when not in per-chapter area appendix)
+\newcommand\normalsecnums{%
+    \renewcommand\thesection{\thechapter.\arabic{section}}}
+\let\origchapter\chapter
+\renewcommand{\chapter}[1]{\normalsecnums
+    \origchapter{#1}}
+\newcommand\appsecnums{%   % execute this command before entering appendix area
+    \setcounter{section}{0}
+    \renewcommand\thesection{\appendixname~\Alph{section}}}
+
+
+\DeclareSIUnit{\parsec}{pc}
+\DeclareSIUnit{\lightyear}{ly}
+
+\begin{document}
+
+\tableofcontents
+
+\subfile{./tex/degn-ch1-notes}
+\subfile{./tex/degn-ch2-notes}
+
+\end{document}
