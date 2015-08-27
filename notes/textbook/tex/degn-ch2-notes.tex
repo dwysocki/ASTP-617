@@ -8,6 +8,49 @@
 
 \section{Structure of galaxies and galactic nuclei}
 
+\subsection{Intensity profiles}
+
+Intensity profiles are functions used to describe the intensity of a galaxy as a function of distance from the center, $I(R)$.
+
+The \textbf{S{\'e}rsic profile} is commonly used, as it is simple and effective. The general form is:
+%
+\begin{displaymath}
+  \ln I(R) = \ln I_e - b \, n \qty[ \qty(R/R_e)^{1/n} - 1 ].
+%
+  \tag{Merritt 2.3}
+  \label{merritt:2.3}
+\end{displaymath}
+%
+The \textbf{S{\'e}rsic index}, $n$, characterizes the shape of the function, and in practice, $n \in \intcc{0.5, 8}$. $b$ is typically chosen such that $R_e$, the \textbf{effective radius}, contains half of the total light. The effective intensity, $I_e$, is thus defined as $I_e \equiv I(R_e)$.
+
+To make the function a little more intuitive, one may use differentiation to put it in the form:
+%
+\begin{displaymath}
+  \dv{\ln I}{\ln R} = -\frac{b}{n} \qty( \frac{R}{R_e} )^{1/n}
+%
+  \tag{Merritt 2.4}
+  \label{merritt:2.4}
+\end{displaymath}
+%
+This form illustrates the fact that the slope on a $\log$--$\log$ plot of the intensity grows with $R$ by $(R/R_e)^{1/n}$.
+
+In many galaxies, within a radius $R_b$, there is a break in the intensity profile (shown in Merritt Figure 2.2). For this reason, it is necessary to define a \textbf{core-S{\'e}rsic profile}:
+%
+\begin{displaymath}
+  I(r) =
+  \begin{dcases}
+    I_b \qty( \frac{R_b}{R} )^\Gamma,
+    & R \leq R_b,
+    \\
+    I_b \exp(b(R_b/R_e)^{1/n}) \exp(-b(R/R_e)^{1/n}),
+    & R > R_b.
+  \end{dcases}
+%
+  \tag{Merritt 2.8}
+  \label{merritt:2.8}
+\end{displaymath}
+
+
 \section{Techniques for weighing black holes}
 
 \section{Supermassive black holes in the Local Group}

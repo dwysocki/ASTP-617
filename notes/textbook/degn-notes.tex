@@ -1,9 +1,18 @@
 \documentclass{book}
 
-\usepackage{amsmath,amssymb,mathabx,mathtools}
+\title{Astrophysical Dynamics (ASTP-617) Notes}
+\author{Daniel Wysocki}
+\date{Fall 2015}
+
+\usepackage[margin=1in]{geometry}
+
+\usepackage{amsmath,amssymb,commath,mathabx,mathtools}
 \usepackage{physics,siunitx}
 
 \usepackage{subfiles}
+
+
+
 
 % the tocloft package lets you redefine the Table of Contents (ToC)
 \usepackage{tocloft}
@@ -22,11 +31,22 @@
     \setcounter{section}{0}
     \renewcommand\thesection{\appendixname~\Alph{section}}}
 
+% remove automatic paragraph indentation, while preserving the \indent
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+
+% reduce spacing around equations
+\usepackage[nodisplayskipstretch]{setspace}
+\setstretch{1.5}
 
 \DeclareSIUnit{\parsec}{pc}
 \DeclareSIUnit{\lightyear}{ly}
 
 \begin{document}
+
+\maketitle
 
 \tableofcontents
 

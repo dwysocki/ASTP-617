@@ -6,9 +6,11 @@ all: pdf/degn-notes.pdf
 # it only works when explicitly called for some reason,
 # i.e. I cannot put the % in all, I have to list each one
 pdf/degn-ch%-notes.pdf: tex/degn-ch%-notes.tex pdf
+	pdflatex -output-directory pdf $< && \
 	pdflatex -output-directory pdf $<
 
 pdf/degn-notes.pdf: degn-notes.tex pdf
+	pdflatex -output-directory pdf $< && \
 	pdflatex -output-directory pdf $<
 
 pdf:
