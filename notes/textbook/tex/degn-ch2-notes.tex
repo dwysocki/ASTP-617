@@ -53,6 +53,69 @@ In many galaxies, within a radius $R_b$, there is a break in the intensity profi
 
 \section{Techniques for weighing black holes}
 
+In most cases, the determination of SBH mass is done through dynamical techniques, i.e. techniques which use the motions of gas and stars to infer the black hole mass.
+
+An important concept is the ``influence radius'', $r_m$, which is typically defined to satisfy
+%
+\begin{displaymath}
+  M_\star(r < r_m) = 2 M_\bullet.
+%
+  \tag{Merritt 2.11}
+  \label{merritt:2.11}
+\end{displaymath}
+%
+In words, $r_m$ is the radius in which the enclosed mass in stars is twice that of the black hole, and the total mass is $3 M_\bullet$. The choice of 2 is somewhat arbitrary, though it is a convenient choice because of the definition of $r_h$ below. This definition, however, is only applicable to spherical galaxies, thereby leading to the alternate definitio of influence radius, $r_h$.
+
+The alternative influence radius, $r_h$, is determined dynamically. It is defined such that the velocity of a circular orbit about the SBH from that distance, $v_c = \sqrt{G M_\bullet / r_h}$, is equal to $\sigma = v_{\rm rms} / \sqrt{3}$.
+%
+\begin{displaymath}
+  r_h \equiv
+  \frac{G M_\bullet}{\sigma^2} \approx
+  10.8 \qty(\frac{M_\bullet}{10^8 \si{\solarmass}})
+       \qty(\frac{\sigma}{\SI{200}{\kilo\meter\per\second}})^{-2} \si{\parsec}
+\end{displaymath}
+%
+$\sigma$ is typically taken to be the rms, line-of-sight velocity of stars within the aperature, which should be centered on the SBH. This is called the \textbf{aperture dispersion}.
+%
+\begin{displaymath}
+  \sigma^2 = \expval{v_{\rm los}^2}
+\end{displaymath}
+
+
+\subsection{Primary mass determination methods: Stellar and gas kinematics}
+
+A common error is determining the mass of an SBH without being able to resolve the influence radius, $r_h$. The telescope must have an angular resolution exceeding
+%
+\begin{displaymath}
+  \theta \lesssim
+  \frac{r_h}{D} \approx
+  0.02'' \qty(\frac{M_\bullet}{10^8 \si{\solarmass}})
+         \qty(\frac{\sigma}{\SI{200}{\kilo\meter\per\second}})^{-2}
+         \qty(\frac{D}{\SI{10}{\mega\parsec}})^{-1}
+%
+  \tag{Merritt 2.20}
+  \label{merritt:2.20}
+\end{displaymath}
+%
+If the influence radius is well resolved, one expects a \textbf{Keplerian rise} in velocities of stars ($v^2 = G M_\bullet / r$), leading to the definition of $r_h$ above. One should be skeptical of claims of resolving the influence radius and SBH mass in the literature. See Figure 2.5 in the text, which shows how bad some of the published data are.
+
+In the case of galaxies with spherical symmetry, the centripetal motion of the gas near the SBH is
+%
+\begin{displaymath}
+  v_c^2(r) = \frac{G (M_\bullet + M_\star)}{r}
+%
+  \tag{Merritt 2.22}
+  \label{merritt:2.22}
+\end{displaymath}
+
+
+\setcounter{subsection}{2}
+\subsection{Mass determination based on empirical correlations}
+
+
+
+
+
 \section{Supermassive black holes in the Local Group}
 
 \section{Phenomenology}
@@ -64,7 +127,7 @@ In many galaxies, within a radius $R_b$, there is a break in the intensity profi
 \section{Gravitational waves}
 
 The amplitude, $h$, of a gravitational wave is a dimensionless quantity given by
-
+%
 \begin{displaymath}
   h \approx
   \frac{G}{c^4} \frac{\ddot{Q}}{D} \approx
@@ -73,11 +136,11 @@ The amplitude, $h$, of a gravitational wave is a dimensionless quantity given by
   \tag{Merritt 2.55}
   \label{merritt:2.55}
 \end{displaymath}
-
+%
 where $v$ is the internal velocity of the source, $M_Q$ is the portion of the source's mass (in units of mass, not just 0--1) participating in the quadrupolar motions, and $D$ is the distance to the source.
 
 To understand the detector size needed to observe a gravitational wave, consider the ideal case, where the entire mass is participating in quadrupolar motions ($M_Q = M_{12}$), and the binary is located at a distance $D$ from the observer and $a$ from each other. Then we have $v^2 \approx G M_{12} / a$, and from (\ref{merritt:2.55}) we have
-
+%
 \begin{align*}
   h &\approx
   \frac{G M_{12}}{c^2 D} \frac{G M_{12}}{a c^2}
@@ -92,7 +155,5 @@ To understand the detector size needed to observe a gravitational wave, consider
   \tag{Merritt 2.58}
   \label{merritt:2.58}
 \end{align*}
-
-
 
 \end{document}
