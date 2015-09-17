@@ -73,13 +73,18 @@ The alternative influence radius, $r_h$, is determined dynamically. It is define
   \frac{G M_\bullet}{\sigma^2} \approx
   10.8 \qty(\frac{M_\bullet}{10^8 \si{\solarmass}})
        \qty(\frac{\sigma}{\SI{200}{\kilo\meter\per\second}})^{-2} \si{\parsec}
+%
+  \tag{Merritt 2.12}
+  \label{merritt:2.12}
 \end{displaymath}
 %
 $\sigma$ is typically taken to be the rms, line-of-sight velocity of stars within the aperature, which should be centered on the SBH. This is called the \textbf{aperture dispersion}.
 %
-\begin{displaymath}
-  \sigma^2 = \expval{v_{\rm los}^2}
-\end{displaymath}
+\begin{equation}
+  \sigma^2 = \expval{v_{\mathrm{los}}^2}
+%
+  \label{eqn:aperture-dispersion}
+\end{equation}
 
 
 \subsection{Primary mass determination methods: Stellar and gas kinematics}
@@ -120,9 +125,181 @@ In the case of galaxies with spherical symmetry, the centripetal motion of the g
 
 \section{Phenomenology}
 
+\setcounter{subsection}{1}
+\subsection{Mass--velocity dispersion relation}
+
+The $M_\bullet$--$\sigma$ relation is an empirical correlation between the mass of a galaxy's SBH, and the velocity dispersion of the stars in that galaxy. Typically, $\sigma$ is measured as the aperture dispersion.
+
+The correlation is very tight, and can be expressed as
+%
+\begin{displaymath}
+  \frac{M_\bullet}{10^8 M_\Sun} =
+  (1.66 \pm 0.24)
+  \qty(\frac{\sigma}{\SI{200}{\kilo\meter\per\second}})^{4.86\pm0.43}
+%
+  \tag{Merritt 2.33}
+  \label{merritt:2.33}
+\end{displaymath}
+
+
+
+\subsection{Significance of the phenomenological relations}
+
+The tight correlation in $M_\bullet$--$\sigma$ is quite puzzling, as one would think the velocities of stars far from the SBH would not be significantly affected by its mass.
+
+A loose explanation works two other correlations together:
+%
+\begin{displaymath}
+  M_{\mathrm{bulge}} \propto L^{5/4}\ \&\ L \propto \sigma^4 \implies
+  M_{\mathrm{bulge}} \propto \sigma^5.
+%
+  \tag{Merritt 2.36}
+  \label{merritt:2.36}
+\end{displaymath}
+%
+This is very close to the observed relation, but one would not expect such a tight correlation from these.
+
+An alternative explanation involves a negative feedback mechanism. By some mechanism, a black hole stops its own growth.
+
+Let $L$ be the energy released in growing an SBH with mass $M(t)$, and let $\eta$ be the accretion efficiency ($\approx 10^{-1}$). Then we have the expression
+%
+\begin{displaymath}
+  L = \eta \dot{M} c^2.
+%
+  \tag{Merritt 2.37}
+  \label{merritt:2.37}
+\end{displaymath}
+%
+Now, this is making a major assumption. It depends on almost all of the potential energy in the gas being released in the form of light. This would not happen if the gas fell straight in, but if it were a gradual process (as an accretion disc would be), then it works.
+
+If we assume $\dot{M}$ to be roughly constant, then we can integrate $L(t)$ to obtain the energy released during formation
+%
+\begin{displaymath}
+  \int_0^T L \dd{t} =
+  \eta M(T) c^2 =
+  \eta M_\bullet c^2.
+\end{displaymath}
+
+Consider that the bulge has a potential energy $G M_{\mathrm{bulge}}^2 / R_{\mathrm{bulge}}$, which, by the virial theorem is equal to twice the kinetic energy, or $M_{\mathrm{bulge}} \sigma^2$.
+
+If we take the ratio of the energy released and the total gravitational potential energy of the bulge, we get
+%
+\begin{displaymath}
+  \frac{E_{\mathrm{released}}}{E_{\mathrm{bulge}}} \approx
+  \frac{\eta M_\bullet c^2}{G M_{\mathrm{bulge}}^2 / R_{\mathrm{bulge}}} \approx
+  \eta \frac{M_\bullet}{M_{\mathrm{bulge}}} \frac{c^2}{\sigma^2} \approx
+  225
+  \qty(\frac{\eta}{0.1})
+  \qty(\frac{M_\bullet / M_{\mathrm{bulge}}}{10^{-3}})
+  \qty(\frac{\sigma}{\SI{200}{\kilo\meter\per\second}})^{-2} \gg
+  1,
+%
+  \tag{Merritt 2.38}
+  \label{merritt:2.38}
+\end{displaymath}
+%
+which tells us that the energy released is much greater than that stored in the bulge.
+
+There is more than enough energy released in growing an SBH to unbind the entire bulge.
+\href{http://articles.adsabs.harvard.edu/cgi-bin/nph-iarticle_query?1998A%26A...331L...1S&amp;data_type=PDF_HIGH&amp;whole_paper=YES&amp;type=PRINTER&amp;filetype=.pdf}{Silk \& Rees (1998)}
+made the argument that the SBH accretes at the Eddington limit:
+%
+\begin{displaymath}
+  L_{\mathrm{edd}} =
+  \frac{4 \pi G m_p M_\bullet c}{\sigma_e} \approx
+  \num{3.2e12} \qty(\frac{M_\bullet}{10^8 M_\Sun}) L_\Sun
+%
+  \tag{Merritt 2.39}
+  \label{merritt:2.39}
+\end{displaymath}
+where $m_p$ is the mass of a proton.
+
+If we ask what SBH mass would be required to produce enough energy to unbind the bulge in a single crossing time, we wind up with the result
+%
+\begin{displaymath}
+  M_\bullet \approx
+  \frac{\sigma_e \sigma^5}{4 \pi G^2 m_p c} \approx
+  \num{3e5} \qty(\frac{\sigma}{\SI{200}{\kilo\meter\per\second}})^5 M_\Sun.
+%
+  \tag{Merritt 2.42}
+  \label{merritt:2.42}
+\end{displaymath}
+%
+This is essentially the $M_\bullet$--$\sigma$ relation, with one caveat: the constant of proportionality is too small, by roughly $10^3$.
+
+Andrew King proposed in 2003, that momentum is the important factor here, not energy. He proposed that the gas driven by SBH radiation will cool efficiently, and that the bulk flow is momentum driven. His proposed equation of motion is
+%
+\begin{displaymath}
+  \dv{t}(R \dot{R}) + \frac{G M_\bullet}{R} =
+  -2 \sigma^2 \qty( 1 - \frac{M_\bullet}{M_\sigma} ),
+%
+  \tag{Merritt 2.46}
+  \label{merritt:2.46}
+\end{displaymath}
+%
+where
+%
+\begin{displaymath}
+  M_\sigma \equiv
+  \frac{f_g \sigma_e}{\pi G^2 m_p} \sigma^4 \approx
+  \num{2e8}
+  \qty(\frac{f_g}{0.1})
+  \qty(\frac{\sigma}{\SI{200}{\kilo\meter\per\second}})^4
+  M_\Sun,
+%
+  \tag{Merritt 2.47}
+  \label{merritt:2.47}
+\end{displaymath}
+%
+and $f_g$ is the cosmic baryon fraction (the ratio of ordinary matter to all matter). The typically assumed value is $f_g \approx 0.16$, which leaves us with a slope on the order of what we expect. However, no mention is made in the book of the discrepancy in the exponent here ($4$) versus what is observed ($4.86\pm0.43$).
+
+
+
 \section{Evidence for intermediate-mass black holes}
 
+\begin{table}[h]
+  \centering
+  \begin{tabular}{l|l}
+    \textbf{Class}    & \textbf{Mass Range}
+    \\ \hline\hline
+    stellar-mass      & $5$--$20$ $M_\Sun$
+    \\
+    intermediate-mass & $10^2$--$10^6$ $M_\Sun$
+    \\
+    super-massive     & $>10^6$ $M_\Sun$
+  \end{tabular}
+  \caption{Classification of black holes by mass}
+\end{table}
+
+
 \section{Evidence for binary and multiple supermassive black holes}
+
+
+\section*{SBH Masses in AGN}
+
+AGN show \emph{continuum emission} from their nuclei, i.e. emission with a spectrum characteristic of hot gas at a range of temperatures. This is believed to arise from an \emph{accretion disc}.
+
+Broad emission lines (H$\alpha$, H$\beta$, \ldots) originating from broad emission line regions (BLR) are believed to consist of gas clouds orbiting well within the influence radius, but outside the accretion disc.
+
+We could measure the mass of the SBH within some AGN using the relation
+%
+\begin{equation}
+  G M_\bullet = f \times R_{\mathrm{BLR}} \times v_{\mathrm{RMS}}^2,
+%
+  \label{eqn:agn-mass}
+\end{equation}
+%
+where $v_{\mathrm{RMS}}$ could be measured by the Doppler effect. One issue is that $R_{\mathrm{BLR}}$ is smaller than the influence radius, and cannot be resolved. A workaround is found by
+%
+\begin{equation}
+  R_{\mathrm{BLR}} = c \tau,
+%
+  \label{eqn:blr-radius}
+\end{equation}
+%
+where $\tau$ is the time lag between a variation in the continuum near the SBH, and a variation in the BLR luminosity. This works because of the finite speed of light.
+
+
 
 \section{Gravitational waves}
 
@@ -148,12 +325,23 @@ To understand the detector size needed to observe a gravitational wave, consider
   \frac{G^2}{c^4} M_{12}^2 a^{-1} D^{-1}
   \\ &\approx
   \num{2e-16}
-    \qty(\frac{M_{12}}{10^{-8} M_{\Sun}})^2
-    \qty(\frac{a}{\si{\milli\parsec}})^{-1}
-    \qty(\frac{D}{100\si{\mega\parsec}})^{-1}
+  \qty(\frac{M_{12}}{10^{-8} M_{\Sun}})^2
+  \qty(\frac{a}{\si{\milli\parsec}})^{-1}
+  \qty(\frac{D}{100\si{\mega\parsec}})^{-1}
 %
   \tag{Merritt 2.58}
   \label{merritt:2.58}
 \end{align*}
+
+If you measure the rate-of-change of the frequency of gravitational waves from a binary black hole, you will not get its individual mass, but instead a combination of the two, called the ``chirp mass'', which is given by
+%
+\begin{equation}
+  M_{\mathrm{ch}} =
+  \sqrt[5]{\frac{(M_1 M_2)^3}{M_1 + M_2}}.
+%
+  \label{eqn:chirp-mass}
+\end{equation}
+
+
 
 \end{document}

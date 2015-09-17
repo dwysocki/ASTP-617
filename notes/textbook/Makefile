@@ -1,6 +1,6 @@
 .PHONY: all clean clobber
 
-all: pdf/degn-notes.pdf
+all: pdf/degn-notes.pdf pdf/degn-ch1-notes.pdf pdf/degn-ch2-notes.pdf
 
 # this target needs to be fixed to work in all
 # it only works when explicitly called for some reason,
